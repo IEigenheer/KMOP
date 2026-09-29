@@ -1,0 +1,87 @@
+\section{Metodologia proposta}
+
+\subsection{Desenho comparativo}
+
+Será conduzida uma avaliação comparativa por tarefa. Cada configuração receberá a mesma entrada, o mesmo estado inicial do ambiente e ferramentas equivalentes. A ordem das execuções será intercalada ou aleatorizada quando viável, e as tarefas usadas para desenvolver o arcabouço serão separadas das reservadas à avaliação final.
+
+Para esta pesquisa, “modelo puro” designará o modelo executando como agente único em um harness básico, com acesso às ferramentas indispensáveis à tarefa, mas sem o roteamento e a orquestração propostos. Uma chamada de chat sem acesso ao ambiente não constitui baseline equivalente para tarefas de edição de repositório ou de terminal.
+
+A unidade de comparação será a configuração completa: identificador do modelo, versão do scaffold e do adaptador, ferramentas, prompts, limites de tempo e gasto e procedimento de entrega. Em uma comparação entre modelos, o harness será fixado; em uma comparação entre scaffolds, o modelo será fixado. A interface de avaliação, o estado inicial do repositório e a extração do patch serão comuns às condições.
+
+Nos benchmarks de resolução de issues, o agente editará uma cópia de trabalho iniciada no commit definido pela instância; não dependerá da redação manual de um \emph{diff} em sua resposta final. Depois do encerramento da execução, uma camada comum do protocolo calculará as diferenças em relação ao estado inicial, removerá apenas artefatos previamente especificados e produzirá o patch no formato requerido pelo avaliador. O mesmo coletor, as mesmas regras de limpeza e a mesma versão do avaliador serão usados em todas as condições. Serão preservados o estado final da cópia de trabalho e o patch submetido para permitir auditoria. Essa separação entre edição e entrega segue a evidência de que pedir ao modelo que serialize diretamente um patch pode introduzir falhas de aplicação anteriores à execução dos testes \cite{Zheng2026ClawSWEBench}.
+
+O contrato de entrega será validado antes das comparações principais. Ausência de alterações, erro na extração, rejeição do patch pelo avaliador e reprovação após sua aplicação serão registrados como etapas distintas. Todas contarão como insucesso na taxa de resolução quando decorrerem da configuração avaliada, mas sua apresentação separada evitará interpretar incompatibilidade de formato como evidência direta de incapacidade para resolver a issue.
+
+\subsection{Seleção e justificativa dos benchmarks}
+
+O SWE-bench consolidou a avaliação de agentes que recebem uma issue e um repositório e devem produzir um patch verificável por execução de testes \cite{Jimenez2024SWEbench}. O SWE-bench-Live será o conjunto principal para esse tipo de tarefa: sua coleção atualizável reúne issues mais recentes, de um número maior de repositórios, com ambientes executáveis \cite{Zhang2025SWEbenchLive}. A atualidade reduz uma fonte potencial de exposição prévia das tarefas, mas não comprova ausência de contaminação. Tampouco uma diferença de pontuação entre conjuntos demonstra, isoladamente, memorização: a dificuldade e a composição das tarefas também podem variar.
+
+O Multi-SWE-bench complementará a avaliação por incluir 1.632 tarefas verificadas em Java, TypeScript, JavaScript, Go, Rust, C e C++ \cite{MultiSWEbench2025}. O estudo desse conjunto relata diferenças de desempenho entre linguagens e entre métodos de agente. O SWE-PolyBench também documenta desempenho desigual e distribuição não uniforme de tarefas por linguagem, reforçando a necessidade de apresentar resultados desagregados \cite{Rashid2025SWEPolyBench}. Python aparece nas comparações publicadas do Multi-SWE-bench por meio de tarefas de outro conjunto; não será contado como uma das sete linguagens que compõem suas 1.632 instâncias.
+
+O Terminal-Bench será a terceira avaliação, voltada à execução de tarefas por agentes em ambientes de linha de comando. Sua publicação acadêmica apresenta o Terminal-Bench 2.0 e um protocolo de verificação por tarefa \cite{Merrill2026TerminalBench}. O projeto mantém versões posteriores; a versão 4.0 alterou tarefas, verificadores e recursos de execução \cite{Marten2026TerminalBench4}. A versão e o identificador do conjunto serão fixados antes dos experimentos. Como suas tarefas abrangem também domínios além da engenharia de software, seus resultados serão interpretados como evidência complementar sobre atuação em terminal, e não como taxa de resolução de issues.
+
+A inclusão de cada instância exigirá ambiente reproduzível, instruções suficientes e um verificador aplicável. Auditorias do SWE-bench Verified e do SWE-bench Pro encontraram, respectivamente, problemas de exposição de soluções e de adequação dos testes, e problemas de qualidade em tarefas do conjunto Pro \cite{OpenAI2026SWEbenchVerified,OpenAI2026SignalNoise}. Esses achados motivam a auditoria e o registro de problemas nas instâncias usadas; não serão extrapolados automaticamente para o SWE-bench-Live, o Multi-SWE-bench ou o Terminal-Bench. Não haverá agregação das pontuações dos três benchmarks em um escore único.
+
+Há evidência adicional para examinar contaminação de maneira específica. Prathifkumar et al. solicitaram a dois modelos a localização dos arquivos alterados em issues do SWE-bench Verified, inclusive com apenas o texto da issue, e observaram desempenho substancialmente maior nesse conjunto do que em BeetleBox e divisões mais recentes do SWE-rebench \cite{Prathifkumar2025ModelMemory}. A diferença é compatível com exposição prévia, mas não identifica, por si só, o conteúdo do treinamento nem prova que uma solução particular foi memorizada. Por isso, a avaliação final deverá registrar datas das tarefas e versões dos modelos, separar instâncias usadas no desenvolvimento e evitar acesso às soluções de referência; resultados entre conjuntos diferentes não serão tratados como teste causal de contaminação.
+
+\subsection{Amostragem e orçamento de avaliação}
+
+O custo de uma grade completa de benchmarks, modelos, scaffolds e ablações pode ultrapassar o orçamento disponível. Após um piloto para estimar custo e variabilidade por tarefa e condição, serão fixados o teto total de gasto, os limites por tentativa e as configurações que cabem na avaliação. Cada comparação usará as mesmas tarefas nas condições confrontadas. O plano distinguirá triagem de configurações e avaliação confirmatória, reservando tarefas não usadas para ajustar o scaffold ou selecionar políticas de roteamento.
+
+Para triagem, poderá ser empregado um subconjunto informativo selecionado por taxas históricas de sucesso por tarefa, quando esses dados estiverem disponíveis e a faixa de dificuldade intermediária tiver tamanho suficiente. Ndzomga observou que selecionar tarefas com taxa histórica entre 30\% e 70\% preservou bem a ordenação de agentes em vários benchmarks, reduzindo o número de tarefas, mas a previsão de pontuações absolutas degradou sob mudança de scaffold \cite{Ndzomga2026EfficientBenchmarking}. A regra e sua origem serão fixadas antes de executar as novas configurações, sem usar seus resultados para escolher as próprias tarefas. Um subconjunto desse tipo servirá para decidir quais alternativas merecem avaliação adicional, não para apresentar sua taxa bruta de resolução como estimativa da taxa no benchmark completo.
+
+Na etapa confirmatória, será priorizado um conjunto reservado com seleção probabilística previamente especificada, eventualmente estratificada por benchmark, linguagem, repositório ou classe de tarefa. Serão registrados universo elegível, probabilidades de inclusão, exclusões e pesos necessários para estimar a taxa correspondente ao universo definido. Se o orçamento impedir uma amostra com precisão suficiente para avaliar a margem de não inferioridade, a conclusão será limitada às tarefas executadas e não afirmará qualidade comparável no benchmark inteiro. Antes de congelar o protocolo, o piloto informará a análise de precisão do contraste pareado e a escolha entre ampliar a amostra, reduzir o número de condições ou restringir o escopo da conclusão. O Terminal-Bench poderá permanecer como avaliação complementar em um recorte pré-definido, sem receber alegações de desempenho global não sustentadas por sua amostra.
+
+\subsection{Condições experimentais}
+
+O desenho inicial contempla as seguintes condições:
+
+\begin{enumerate}
+    \item agente de modelo único com o modelo de menor custo;
+    \item agente de modelo único com o modelo de maior capacidade;
+    \item cada modelo de referência executando com o arcabouço proposto, para estimar o efeito de acrescentá-lo ao mesmo modelo;
+    \item configuração com roteamento entre os modelos e alocação de papéis;
+    \item configuração roteada com execução paralela de subtarefas independentes, caso a decomposição seja aplicável.
+\end{enumerate}
+
+As condições serão refinadas após um piloto e a leitura dos estudos sobre arquiteturas e roteamento. Para isolar efeitos, serão comparadas a configuração completa e ablações sem roteamento, sem revisão ou escalonamento e sem paralelização. Modelos, versões, prompts, limites, ferramentas, parâmetros de geração e orçamento serão registrados. Além de comparações sob orçamento fixado, será relatado o consumo efetivamente observado.
+
+Serão incluídos controles simples sob o mesmo teto de recursos, como o agente básico com repetição limitada após falha observável e uma regra fixa de escalonamento ao modelo mais capaz. Esses controles são necessários para verificar se eventuais ganhos da arquitetura decorrem de sua política de coordenação ou apenas de novas tentativas e maior gasto de inferência \cite{Kapoor2024AIAgentsMatter}. O número de tentativas internas, o número de execuções experimentais independentes e o limite de passos serão definidos separadamente. A mesma política de acesso aos testes disponíveis ao agente valerá para todas as condições; testes reservados permanecerão externos.
+
+\subsection{Métricas de qualidade e conclusão}
+
+Para cada benchmark $b$, configuração $c$ e tarefa $i$ de um conjunto previamente fixado $I_b$, seja $s_{i,c}=1$ quando o verificador oficial considerar a entrega correta, e $s_{i,c}=0$ caso contrário. A medida primária de qualidade operacional será a taxa de resolução, calculada por
+\begin{equation}
+\widehat{R}_{b,c}=\frac{1}{|I_b|}\sum_{i\in I_b}s_{i,c}.
+\end{equation}
+No caso dos benchmarks de issues, um patch deve ser aplicável e satisfazer os testes \emph{fail-to-pass} (correção) e \emph{pass-to-pass} (ausência de regressão) exigidos pelo respectivo protocolo \cite{Jimenez2024SWEbench}. No Terminal-Bench será usado o verificador da versão selecionada. Falta de entrega, patch inválido e timeout contarão como insucesso na medida primária, com suas causas descritas separadamente. Instâncias consideradas inválidas em auditoria prévia somente poderão ser excluídas por critérios registrados antes da comparação e aplicados a todas as configurações.
+
+Qualidade, custo e latência serão apresentados como desfechos centrais distintos. A análise de qualidade empregará a margem de não inferioridade previamente definida para a diferença pareada de resolução em relação ao agente de referência; somente após essa verificação se examinará se custo e tempo diminuíram na mesma comparação. Também serão apresentados casos de dominância e de troca entre dimensões, sem condensá-las em um índice único. A taxa observada em um subconjunto escolhido pela dificuldade será rotulada como resultado daquele subconjunto.
+
+A taxa de aplicação de patches e, quando disponível, a fração de testes \emph{fail-to-pass} aprovados serão diagnósticos secundários. Uma aprovação parcial não será confundida com tarefa resolvida, distinção também adotada na análise do FeatureBench \cite{Zhou2026FeatureBench}. Com uma tentativa por tarefa, a taxa de resolução corresponde ao sucesso em uma tentativa; se houver repetições, serão relatadas separadamente, sem transformar a melhor tentativa em resultado de tentativa única.
+
+A confiabilidade da decisão interna de término será medida pela proporção de entregas declaradas concluídas que falharem na avaliação externa:
+\begin{equation}
+\widehat{F}_{b,c}=\frac{\sum_{i\in I_b} \mathbb{1}[d_{i,c}=1\land s_{i,c}=0]}{\sum_{i\in I_b}\mathbb{1}[d_{i,c}=1]},
+\end{equation}
+em que $d_{i,c}=1$ indica que o sistema declarou a tarefa concluída. A medida ficará indefinida se não houver entregas declaradas concluídas. Recusas, escalonamentos e encerramentos sem entrega serão relatados à parte. Esse indicador é proposto para este estudo e não substitui a pontuação oficial de nenhum benchmark.
+
+\subsection{Custo e latência}
+
+O custo monetário de API por tentativa incluirá todas as chamadas feitas pelo sistema, inclusive planejamento, execução, revisão, resumos, repetições e tentativas malsucedidas. Para a chamada $j$, $u_{j,k}$ será o número de tokens na categoria de cobrança $k$ (entrada não armazenada em cache, entrada em cache ou saída) e $p_{m_j,k}$ seu preço por milhão de tokens para o modelo $m_j$. Com eventuais tarifas fixas $f_j$, o custo será
+\begin{equation}
+C^{\mathrm{API}}_{i,c}=\sum_{j\in J_{i,c}}\left(\sum_k\frac{u_{j,k}p_{m_j,k}}{10^6}+f_j\right).
+\end{equation}
+As categorias serão mutuamente exclusivas para evitar dupla contagem. Serão registrados moeda, fonte e data das tarifas, assim como uso de tokens e eventuais chamadas sem dados de cobrança. Custos de infraestrutura e ferramentas serão informados separadamente do custo de API. Relataremos o custo médio por tarefa, $\sum_{i\in I_b} C^{\mathrm{API}}_{i,c}/|I_b|$, e o custo por tarefa resolvida, $\sum_{i\in I_b} C^{\mathrm{API}}_{i,c}/\sum_{i\in I_b} s_{i,c}$; esta última razão ficará indefinida se nenhuma tarefa for resolvida. O custo médio por issue é também relatado no Multi-SWE-bench \cite{MultiSWEbench2025}.
+
+O numerador do custo por tarefa resolvida incluirá também tarefas malsucedidas; portanto, a medida representa o gasto amortizado necessário para obter uma resolução sob a configuração observada. Serão relatados, como diagnósticos, tokens de entrada e saída, cache, número de chamadas, tentativas, testes executados e intervenções do modelo mais capaz. Os tokens permitem reavaliar custos quando tarifas mudarem, mas não substituem o valor monetário: preço por categoria, cache e eventuais cobranças de ferramenta podem mudar a relação entre consumo de tokens e fatura. Quando disponível, o custo calculado a partir dos logs será confrontado com os registros de cobrança.
+
+A latência operacional de ponta a ponta será $T_{i,c}=t^{\mathrm{entrega}}_{i,c}-t^{\mathrm{inicio}}_{i,c}$, desde o fornecimento da tarefa ao agente até sua entrega ou encerramento. Inclui espera por modelos, ações de ferramenta, testes internos, coordenação e trabalho paralelo; o tempo posterior de avaliação externa será registrado à parte. Serão informados mediana, percentil 95 e distribuição por tarefa. O tempo de parede permitirá avaliar o efeito da paralelização sem confundi-lo com a soma dos tempos de todos os agentes.
+
+\subsection{Procedimento e análise}
+
+As tarefas serão executadas sem expor aos agentes testes reservados ou soluções de referência do avaliador final. Serão preservados patches, logs, chamadas a modelos, ações de ferramenta, testes executados, decisões de escalonamento e motivos de encerramento. Falhas de ambiente, timeouts e erros do agente serão classificados separadamente.
+
+Também serão registrados o ponto da falha e o componente envolvido: localização, edição, aplicação do patch, execução de testes, verificação, escalonamento e decisão de parar. Isso fornecerá sinais sobre os componentes além do veredito final, sem substituir a avaliação de ponta a ponta. A taxonomia será definida antes da análise principal e casos ambíguos serão auditados. Em uma amostra viável de patches aprovados e reprovados, testes comportamentais adicionais ou revisão independente poderão verificar requisitos não cobertos pelo avaliador oficial; os critérios dessa revisão deverão ser definidos sem consultar a identidade da configuração avaliada.
+
+No Multi-SWE-bench, serão apresentadas taxas por linguagem e por repositório, além da taxa global; uma média entre linguagens com pesos iguais poderá ser relatada como medida secundária, sempre acompanhada dos tamanhos de cada grupo. O tamanho da amostra e o número de execuções por tarefa serão definidos após um piloto. A análise respeitará o pareamento por tarefa e a dependência entre tarefas do mesmo repositório. Intervalos de confiança e uma margem de não inferioridade para qualidade serão definidos antes da avaliação confirmatória. Custo, qualidade e latência serão exibidos separadamente, inclusive por relações de dominância de Pareto quando apropriado. A ausência de diferença estatisticamente significativa, por si só, não será interpretada como equivalência.

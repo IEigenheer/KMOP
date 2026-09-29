@@ -1,25 +1,38 @@
-\documentclass[12pt]{article}
+\documentclass[conference]{IEEEtran}
 
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
 \usepackage{graphicx}
 \usepackage{amsmath}
-\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{cite}
+\usepackage[hidelinks]{hyperref}
 
-\title{Meu Artigo}
-\author{Isaac}
-\date{}
+\renewcommand{\IEEEkeywordsname}{Palavras-chave}
+
+\title{Roteamento de modelos e orquestração de agentes para engenharia de software: qualidade, custo e latência}
+\author{\IEEEauthorblockN{Isaac}}
 
 \begin{document}
 
 \maketitle
 
+\begin{abstract}
+Taxas de resolução, isoladamente, não descrevem os recursos necessários para que agentes de programação concluam tarefas nem permitem atribuir diferenças ao modelo quando harnesses e ferramentas variam. Este artigo discute evidências sobre custo, efeitos de scaffold, exposição a benchmarks e amostragem eficiente e apresenta um protocolo para avaliar roteamento entre modelos em tarefas de engenharia de software. O protocolo compara configurações sob tarefas, ferramentas e limites documentados, mede qualidade, custo e latência separadamente e distingue triagem de avaliação confirmatória. O uso seletivo de um modelo de maior capacidade para planejamento ou escalonamento, combinado com execução de menor custo e possível paralelização, permanece uma hipótese de projeto. Ainda não foram obtidos resultados experimentais que permitam afirmar que essa arquitetura preserve qualidade ou reduza recursos.
+\end{abstract}
+
+\begin{IEEEkeywords}
+agentes de programação, roteamento de modelos, engenharia de software, scaffolding, avaliação de benchmarks
+\end{IEEEkeywords}
+
 \input{sections/introduction}
-\input{sections/related_work}
+\input{sections/framework}
 \input{sections/methodology}
-\input{sections/results}
+\input{sections/discussion}
 \input{sections/conclusion}
 
-\bibliographystyle{plain}
+\bibliographystyle{IEEEtran}
 \bibliography{references}
 
 \end{document}
