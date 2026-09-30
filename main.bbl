@@ -44,17 +44,11 @@ M.~Zheng, K.~Han, B.~Li, H.~Xu, Y.~Tian, W.~He, H.~Zhou, J.~Guo, H.~Hu, L.~Ma,
   \url{https://arxiv.org/abs/2606.12344}
 \BIBentrySTDinterwordspacing
 
-\bibitem{Prathifkumar2025ModelMemory}
+\bibitem{Starace2026ScaffoldGAIA}
 \BIBentryALTinterwordspacing
-T.~Prathifkumar, N.~S. Mathews, and M.~Nagappan, ``Does {SWE-Bench-Verified}
-  test agent ability or model memory?'' arXiv:2512.10218, 2025. [Online].
-  Available: \url{https://arxiv.org/abs/2512.10218}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Ndzomga2026EfficientBenchmarking}
-\BIBentryALTinterwordspacing
-F.~Ndzomga, ``Efficient benchmarking of {AI} agents,'' arXiv:2603.23749, 2026.
-  [Online]. Available: \url{https://arxiv.org/abs/2603.23749}
+J.~Starace, ``Scaffold effects on {GAIA}: A controlled comparison,''
+  arXiv:2606.08529, 2026. [Online]. Available:
+  \url{https://arxiv.org/abs/2606.08529}
 \BIBentrySTDinterwordspacing
 
 \bibitem{Gorinova2026MisalignedBenchmarks}
@@ -65,17 +59,12 @@ M.~I. Gorinova, M.~Baker, A.~Heineike, M.~Shaposhnikov, R.~Willoughby, and
   \url{https://arxiv.org/abs/2606.17799}
 \BIBentrySTDinterwordspacing
 
-\bibitem{Starace2026ScaffoldGAIA}
+\bibitem{Prathifkumar2025ModelMemory}
 \BIBentryALTinterwordspacing
-J.~Starace, ``Scaffold effects on {GAIA}: A controlled comparison,''
-  arXiv:2606.08529, 2026. [Online]. Available:
-  \url{https://arxiv.org/abs/2606.08529}
+T.~Prathifkumar, N.~S. Mathews, and M.~Nagappan, ``Does {SWE-Bench-Verified}
+  test agent ability or model memory?'' arXiv:2512.10218, 2025. [Online].
+  Available: \url{https://arxiv.org/abs/2512.10218}
 \BIBentrySTDinterwordspacing
-
-\bibitem{Jimenez2024SWEbench}
-C.~E. Jimenez, J.~Yang, A.~Wettig, S.~Yao, K.~Pei, O.~Press, and K.~Narasimhan,
-  ``{SWE}-bench: {Can Language Models Resolve Real-World} {GitHub} issues?'' in
-  \emph{International Conference on Learning Representations}, 2024.
 
 \bibitem{Zhang2025SWEbenchLive}
 L.~Zhang, S.~He, C.~Zhang, Y.~Kang, B.~Li, C.~Xie, J.~Wang, M.~Wang, Y.~Huang,
@@ -86,16 +75,27 @@ L.~Zhang, S.~He, C.~Zhang, Y.~Kang, B.~Li, C.~Xie, J.~Wang, M.~Wang, Y.~Huang,
 {ByteDance Seed}, ``{Multi-SWE-bench}: A {Multilingual Benchmark for Issue
   Resolving},'' arXiv:2504.02605, 2025.
 
-\bibitem{Rashid2025SWEPolyBench}
-M.~S. Rashid \emph{et~al.}, ``{SWE-PolyBench}: A multi-language benchmark for
-  repository level evaluation of coding agents,'' arXiv:2504.08703, 2025.
-
 \bibitem{Merrill2026TerminalBench}
 \BIBentryALTinterwordspacing
 M.~A. Merrill \emph{et~al.}, ``{Terminal-Bench}: Benchmarking agents on hard,
   realistic tasks in command line interfaces,'' arXiv:2601.11868, 2026.
   [Online]. Available: \url{https://arxiv.org/abs/2601.11868}
 \BIBentrySTDinterwordspacing
+
+\bibitem{Ndzomga2026EfficientBenchmarking}
+\BIBentryALTinterwordspacing
+F.~Ndzomga, ``Efficient benchmarking of {AI} agents,'' arXiv:2603.23749, 2026.
+  [Online]. Available: \url{https://arxiv.org/abs/2603.23749}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Jimenez2024SWEbench}
+C.~E. Jimenez, J.~Yang, A.~Wettig, S.~Yao, K.~Pei, O.~Press, and K.~Narasimhan,
+  ``{SWE}-bench: {Can Language Models Resolve Real-World} {GitHub} issues?'' in
+  \emph{International Conference on Learning Representations}, 2024.
+
+\bibitem{Rashid2025SWEPolyBench}
+M.~S. Rashid \emph{et~al.}, ``{SWE-PolyBench}: A multi-language benchmark for
+  repository level evaluation of coding agents,'' arXiv:2504.08703, 2025.
 
 \bibitem{Marten2026TerminalBench4}
 \BIBentryALTinterwordspacing

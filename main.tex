@@ -11,7 +11,7 @@
 
 \renewcommand{\IEEEkeywordsname}{Palavras-chave}
 
-\title{Roteamento de modelos e orquestração de agentes para engenharia de software: qualidade, custo e latência}
+\title{Eficiência de agentes de programação: qualidade, custo e latência}
 \author{\IEEEauthorblockN{Isaac}}
 
 \begin{document}
@@ -19,7 +19,7 @@
 \maketitle
 
 \begin{abstract}
-Taxas de resolução, isoladamente, não descrevem os recursos necessários para que agentes de programação concluam tarefas nem permitem atribuir diferenças ao modelo quando harnesses e ferramentas variam. Este artigo discute evidências sobre custo, efeitos de scaffold, exposição a benchmarks e amostragem eficiente e apresenta um protocolo para avaliar roteamento entre modelos em tarefas de engenharia de software. O protocolo compara configurações sob tarefas, ferramentas e limites documentados, mede qualidade, custo e latência separadamente e distingue triagem de avaliação confirmatória. O uso seletivo de um modelo de maior capacidade para planejamento ou escalonamento, combinado com execução de menor custo e possível paralelização, permanece uma hipótese de projeto. Ainda não foram obtidos resultados experimentais que permitam afirmar que essa arquitetura preserve qualidade ou reduza recursos.
+Este artigo delimita um protocolo para desenvolver e avaliar uma abordagem de execução de agentes de programação que melhore a relação entre custo e qualidade em comparação com um modelo em seu harness padrão, sob restrição de latência. A avaliação considera tanto economia com preservação da taxa de resolução quanto reduções de custo que justifiquem perdas delimitadas nessa taxa. Evidências sobre consumo de recursos, harnesses e validade de benchmarks fundamentam comparações pareadas com agentes de modelo único, um modelo forte com técnicas de economia de tokens e uma política simples de escalonamento. Taxa de resolução, custo monetário e tempo serão medidos separadamente, incluindo execuções malsucedidas. Roteamento entre modelos, gestão de contexto, revisão e paralelização permanecem hipóteses de mecanismo a investigar. Como ainda não há resultados experimentais, o protocolo estabelece como avaliar o benefício da abordagem, sem antecipar qual mecanismo o produzirá.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -27,8 +27,8 @@ agentes de programação, roteamento de modelos, engenharia de software, scaffol
 \end{IEEEkeywords}
 
 \input{sections/introduction}
-\input{sections/framework}
 \input{sections/methodology}
+\input{sections/framework}
 \input{sections/discussion}
 \input{sections/conclusion}
 
