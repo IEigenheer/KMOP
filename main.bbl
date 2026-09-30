@@ -88,6 +88,28 @@ F.~Ndzomga, ``Efficient benchmarking of {AI} agents,'' arXiv:2603.23749, 2026.
   [Online]. Available: \url{https://arxiv.org/abs/2603.23749}
 \BIBentrySTDinterwordspacing
 
+\bibitem{Xia2024Agentless}
+\BIBentryALTinterwordspacing
+C.~S. Xia, Y.~Deng, S.~Dunn, and L.~Zhang, ``{Agentless}: Demystifying
+  {LLM}-based software engineering agents,'' arXiv:2407.01489, 2024. [Online].
+  Available: \url{https://arxiv.org/abs/2407.01489}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Jiang2025LCLM}
+\BIBentryALTinterwordspacing
+M.~Jiang, Y.~Ruan, L.~Lastras, P.~Kapanipathi, and T.~Hashimoto, ``Putting it
+  all into context: Simplifying agents with {LCLMs},'' arXiv:2505.08120, 2025.
+  [Online]. Available: \url{https://arxiv.org/abs/2505.08120}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Chen2026IcatAgent}
+\BIBentryALTinterwordspacing
+Y.~Chen, A.~Ahmad, Y.~Zhou, and R.~Jabbarvand, ``Unlocking model potentials
+  through adaptive multi-agent scaffolding for efficient issue resolution,''
+  arXiv:2606.25514, 2026. [Online]. Available:
+  \url{https://arxiv.org/abs/2606.25514}
+\BIBentrySTDinterwordspacing
+
 \bibitem{Jimenez2024SWEbench}
 C.~E. Jimenez, J.~Yang, A.~Wettig, S.~Yao, K.~Pei, O.~Press, and K.~Narasimhan,
   ``{SWE}-bench: {Can Language Models Resolve Real-World} {GitHub} issues?'' in
@@ -122,5 +144,120 @@ R.~Marten, ``{Terminal-Bench} 4.0: Calibrating task resources, fixing tasks,
 Q.~Zhou \emph{et~al.}, ``{FeatureBench}: Benchmarking agentic coding for
   complex feature development,'' in \emph{International Conference on Learning
   Representations}, 2026.
+
+\bibitem{Wang2025AgenticProgramming}
+\BIBentryALTinterwordspacing
+H.~Wang, J.~Gong, H.~Zhang, J.~Xu, and Z.~Wang, ``{AI} agentic programming: A
+  survey of techniques, challenges, and opportunities,'' arXiv:2508.11126,
+  2025. [Online]. Available: \url{https://arxiv.org/abs/2508.11126}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Ferrag2026AutonomousAgents}
+M.~A. Ferrag, N.~Tihanyi, and M.~Debbah, ``From {LLM} reasoning to autonomous
+  {AI} agents: A comprehensive review,'' \emph{IEEE Access}, vol.~14, 2026.
+
+\bibitem{Lin2024FlowGen}
+\BIBentryALTinterwordspacing
+F.~Lin, D.~J. Kim, and T.-H. Chen, ``{SOEN-101}: Code generation by emulating
+  software process models using large language model agents,''
+  arXiv:2403.15852, 2024. [Online]. Available:
+  \url{https://arxiv.org/abs/2403.15852}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Pan2025SWEGym}
+\BIBentryALTinterwordspacing
+J.~Pan, X.~Wang, G.~Neubig, N.~Jaitly, H.~Ji, A.~Suhr, and Y.~Zhang, ``Training
+  software engineering agents and verifiers with {SWE-Gym},'' arXiv:2412.21139,
+  2025. [Online]. Available: \url{https://arxiv.org/abs/2412.21139}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Stroebl2026Resampling}
+B.~Stroebl, S.~Kapoor, and A.~Narayanan, ``The limits of inference scaling
+  through resampling,'' in \emph{International Conference on Learning
+  Representations}, 2026.
+
+\bibitem{Huang2024SelfCorrect}
+\BIBentryALTinterwordspacing
+J.~Huang, X.~Chen, S.~Mishra, H.~S. Zheng, A.~W. Yu, X.~Song, and D.~Zhou,
+  ``Large language models cannot self-correct reasoning yet,''
+  arXiv:2310.01798, 2023. [Online]. Available:
+  \url{https://arxiv.org/abs/2310.01798}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Panickssery2024SelfPreference}
+\BIBentryALTinterwordspacing
+A.~Panickssery, S.~R. Bowman, and S.~Feng, ``{LLM} evaluators recognize and
+  favor their own generations,'' arXiv:2404.13076, 2024. [Online]. Available:
+  \url{https://arxiv.org/abs/2404.13076}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Zhuge2024AgentJudge}
+\BIBentryALTinterwordspacing
+M.~Zhuge, C.~Zhao, D.~R. Ashley, W.~Wang, D.~Khizbullin, Y.~Xiong, Z.~Liu,
+  E.~Chang, R.~Krishnamoorthi, Y.~Tian, Y.~Shi, V.~Chandra, and J.~Schmidhuber,
+  ``Agent-as-a-judge: Evaluate agents with agents,'' arXiv:2410.10934, 2024.
+  [Online]. Available: \url{https://arxiv.org/abs/2410.10934}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Shi2026AJBench}
+\BIBentryALTinterwordspacing
+W.~Shi, Y.~Wang, Y.~Zhao, Y.~Chen, F.~Feng, X.~Hao, X.~Su, Q.~Gu, H.~Su,
+  X.~Cai, and X.~He, ``{AJ-Bench}: Benchmarking agent-as-a-judge for
+  environment-aware evaluation,'' arXiv:2604.18240, 2026. [Online]. Available:
+  \url{https://arxiv.org/abs/2604.18240}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Wu2026VRRStop}
+\BIBentryALTinterwordspacing
+Y.~Wu, S.~Shen, R.~Yang, H.~Peng, and B.~Hu, ``Verify, repair, repeat, or stop?
+  robust stopping for noisy verify-repair loops in {LLM} agents,''
+  arXiv:2607.17641, 2026. [Online]. Available:
+  \url{https://arxiv.org/abs/2607.17641}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Han2026SWESkills}
+\BIBentryALTinterwordspacing
+T.~Han, Y.~Zhang, W.~Song, C.~Fang, Z.~Chen, Y.~Sun, and L.~Hu,
+  ``{SWE-Skills-Bench}: Do agent skills actually help in real-world software
+  engineering?'' arXiv:2603.15401, 2026. [Online]. Available:
+  \url{https://arxiv.org/abs/2603.15401}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Taghavi2026SpecKitAgents}
+\BIBentryALTinterwordspacing
+P.~Taghavi and S.~Bhavani, ``{Spec Kit Agents}: Context-grounded agentic
+  workflows,'' arXiv:2604.05278, 2026. [Online]. Available:
+  \url{https://arxiv.org/abs/2604.05278}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Macedo2026PromptProcess}
+\BIBentryALTinterwordspacing
+S.~O.~d. Macedo, ``From prompt to process: a process taxonomy and comparative
+  assessment of frameworks supporting {AI} software development agents,''
+  arXiv:2606.04967, 2026. [Online]. Available:
+  \url{https://arxiv.org/abs/2606.04967}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Barr2015Oracle}
+E.~T. Barr, M.~Harman, P.~McMinn, M.~Shahbaz, and S.~Yoo, ``The oracle problem
+  in software testing: A survey,'' \emph{IEEE Transactions on Software
+  Engineering}, vol.~41, no.~5, 2015.
+
+\bibitem{Liu2023EvalPlus}
+\BIBentryALTinterwordspacing
+J.~Liu, C.~S. Xia, Y.~Wang, and L.~Zhang, ``Is your code generated by {ChatGPT}
+  really correct? rigorous evaluation of large language models for code
+  generation,'' arXiv:2305.01210, 2023. [Online]. Available:
+  \url{https://arxiv.org/abs/2305.01210}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Yu2026SWEABS}
+\BIBentryALTinterwordspacing
+B.~Yu, Y.~Cao, Y.~Zhang, L.~Lin, J.~Xu, Z.~Zhong, Q.~Xu, G.~Wang, J.~Cao, S.-C.
+  Cheung, P.~He, and L.~Briand, ``{SWE-ABS}: Adversarial benchmark
+  strengthening exposes inflated success rates on test-based benchmark,''
+  arXiv:2603.00520, 2026. [Online]. Available:
+  \url{https://arxiv.org/abs/2603.00520}
+\BIBentrySTDinterwordspacing
 
 \end{thebibliography}

@@ -19,11 +19,11 @@
 \maketitle
 
 \begin{abstract}
-Este artigo delimita um protocolo para desenvolver e avaliar uma abordagem de execução de agentes de programação que melhore a relação entre custo e qualidade em comparação com um modelo em seu harness padrão, sob restrição de latência. A avaliação considera tanto economia com preservação da taxa de resolução quanto reduções de custo que justifiquem perdas delimitadas nessa taxa. Evidências sobre consumo de recursos, harnesses e validade de benchmarks fundamentam comparações pareadas com agentes de modelo único, um modelo forte com técnicas de economia de tokens e uma política simples de escalonamento. Taxa de resolução, custo monetário e tempo serão medidos separadamente, incluindo execuções malsucedidas. Roteamento entre modelos, gestão de contexto, revisão e paralelização permanecem hipóteses de mecanismo a investigar. Como ainda não há resultados experimentais, o protocolo estabelece como avaliar o benefício da abordagem, sem antecipar qual mecanismo o produzirá.
+Este artigo delimita um protocolo para desenvolver e avaliar uma abordagem de execução de agentes de programação que melhore a relação entre custo e qualidade em comparação com um modelo em seu harness padrão, sob restrição de latência. A avaliação considera tanto economia com preservação da taxa de resolução quanto reduções de custo que justifiquem perdas delimitadas nessa taxa. Evidências sobre processos, contexto, verificadores e validade de benchmarks fundamentam comparações pareadas com agentes de modelo único, um modelo forte com técnicas de economia de tokens e uma política simples de escalonamento. A investigação distingue composição fixa e roteamento de modelos, seleção e distribuição de contexto e ativação de etapas do processo, avaliando suas interações. Taxa de resolução, custo monetário e tempo serão medidos separadamente, incluindo execuções malsucedidas e intervenções auxiliares. Como ainda não há resultados experimentais, os mecanismos, incluindo revisão e paralelização, permanecem hipóteses; o protocolo estabelece controles para atribuir seus efeitos sem antecipar uma arquitetura superior.
 \end{abstract}
 
 \begin{IEEEkeywords}
-agentes de programação, roteamento de modelos, engenharia de software, scaffolding, avaliação de benchmarks
+agentes de programação, engenharia de contexto, roteamento de modelos, scaffolding, avaliação de benchmarks
 \end{IEEEkeywords}
 
 \input{sections/introduction}
